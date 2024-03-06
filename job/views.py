@@ -8,10 +8,10 @@ from django.contrib.auth.decorators import login_required
 
 def jop_list(request):
     job_list=Job.objects.all()
-    paginator = Paginator( job_list, 3) 
+    paginator = Paginator( job_list, 1) 
     page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    context={'job_list':page_obj}
+    job_list = paginator.get_page(page_number)
+    context={'job_list':job_list}
     return render(request,'job/job_list.html',context)
 
 def jop_detail(request,id):
