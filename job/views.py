@@ -14,10 +14,9 @@ def jop_list(request):
     context={'job_list':job_list}
     return render(request,'job/job_list.html',context)
 
-def jop_detail(request,id):
+def jop_detail(request,slug):
 
-    job_detail=Job.objects.get(id=id)
+    job_detail=Job.objects.get(slug=slug)
     context={'job_detail':job_detail}
     return render(request,'job/job_detils.html',context)
    
-
