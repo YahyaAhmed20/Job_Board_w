@@ -2,7 +2,7 @@ from audioop import reverse
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from .models import Job
-from .forms import ApplyForm
+from .forms import ApplyForm,Jobform
 from django.contrib import messages
 
 
@@ -42,3 +42,33 @@ def job_detail(request, slug):
 
 
     return render(request, 'job/job_detils.html', context)
+
+
+@login_required
+def add_job(request):
+    if request.method=='POST':
+        form=Jobform(request.POST,request.FILES)
+        if form.is_valid():
+            myform=form.save(commit=False)
+            myform.owner=request.user
+            myform.save()
+            
+            messages.success(request, 'Congratulations! The job has been successfully posted. We look forward to receiving qualified candidates!')
+            request.session['show_message'] = True  # Set session variable
+            return redirect('jobs:job_list')
+
+
+            
+    else:
+        form=Jobform()
+        
+    context = {
+            
+        'form1':form
+         
+        }
+    request.session.pop('show_message', None)
+
+    
+    return render(request,'job/add_job.html',context)
+

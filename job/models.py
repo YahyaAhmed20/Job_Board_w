@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django_countries.fields import CountryField
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -15,6 +16,7 @@ def image_upload(instance,filename):
     
 
 class Job(models.Model):
+    owner=models.ForeignKey(User,related_name='job_owner',on_delete=models.CASCADE)
     title=models.CharField(max_length=100)
     job_tybe=models.CharField(max_length=15,choices=JOB_TYPE)
     country = models.CharField(max_length=200,  null=True, choices=CountryField().choices + [('', 'Select Country')])
