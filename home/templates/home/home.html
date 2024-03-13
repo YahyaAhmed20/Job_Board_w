@@ -1,5 +1,5 @@
-
 {% extends 'base.html' %}
+{% load static %}
 {%block body%}
  
      <!-- slider_area_start -->
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="ilstration_img wow fadeInRight d-none d-lg-block text-right" data-wow-duration="1s" data-wow-delay=".2s">
-            <img src="img/banner/illustration.png" alt="">
+            <img src="{% static 'img/banner/illustration.png' %}" alt="">
         </div>
     </div>
     <!-- slider_area_end -->
@@ -95,49 +95,49 @@
             <div class="row">
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Design & Creative</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Design & Creative</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Marketing</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Marketing</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Telemarketing</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Telemarketing</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Software & Web</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Software & Web</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Administration</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Administration</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Teaching & Education</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Teaching & Education</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Engineering</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Engineering</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_catagory">
-                        <a href="jobs.html"><h4>Garments / Textile</h4></a>
+                        <a href="{% url 'home:home_job_list' %}"><h4>Garments / Textile</h4></a>
                         <p> <span>50</span> Available position</p>
                     </div>
                 </div>
@@ -168,7 +168,7 @@
                         <div class="single_jobs white-bg d-flex justify-content-between">
                             <div class="jobs_left d-flex align-items-center">
                                 <div class="thumb">
-                                    <img src="img/svg_icon/1.svg" alt="">
+                                    <img src="{% static 'img/svg_icon/1.svg' %}" alt="">
                                 </div>
                                 <div class="jobs_conetent">
                                     <a href="{% url 'home:home_job_details' job.slug %}"><h4>{{ job.title }}</h4></a>
@@ -220,91 +220,91 @@
                     <div class="candidate_active owl-carousel">
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/1.png" alt="">
+                                <img src="{% static 'img/candiateds/1.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/2.png" alt="">
+                                <img src="{% static 'img/candiateds/2.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/3.png" alt="">
+                                <img src="{% static 'img/candiateds/3.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/4.png" alt="">
+                                <img src="{% static 'img/candiateds/4.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/5.png" alt="">
+                                <img src="{% static 'img/candiateds/5.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/6.png" alt="">
+                                <img src="{% static 'img/candiateds/6.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/7.png" alt="">
+                                <img src="{% static 'img/candiateds/7.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/8.png" alt="">
+                                <img src="{% static 'img/candiateds/8.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/9.png" alt="">
+                                <img src="{% static 'img/candiateds/9.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/9.png" alt="">
+                                <img src="{% static 'img/candiateds/9.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/10.png" alt="">
+                                <img src="{% static 'img/candiateds/10.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/3.png" alt="">
+                                <img src="{% static 'img/candiateds/3.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
                         </div>
                         <div class="single_candidates text-center">
                             <div class="thumb">
-                                <img src="img/candiateds/4.png" alt="">
+                                <img src="{% static 'img/candiateds/4.png' %}" alt="">
                             </div>
                             <a href="#"><h4>Markary Jondon</h4></a>
                             <p>Software Engineer</p>
@@ -334,7 +334,7 @@
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_company">
                         <div class="thumb">
-                            <img src="img/svg_icon/5.svg" alt="">
+                            <img src="{% static 'img/svg_icon/5.svg' %}" alt="">
                         </div>
                         <a href="jobs.html"><h3>Snack Studio</h3></a>
                         <p> <span>50</span> Available position</p>
@@ -343,7 +343,7 @@
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_company">
                         <div class="thumb">
-                            <img src="img/svg_icon/4.svg" alt="">
+                            <img src="{% static 'img/svg_icon/4.svg' %}" alt="">
                         </div>
                         <a href="jobs.html"><h3>Snack Studio</h3></a>
                         <p> <span>50</span> Available position</p>
@@ -352,7 +352,7 @@
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_company">
                         <div class="thumb">
-                            <img src="img/svg_icon/3.svg" alt="">
+                            <img src="{% static 'img/svg_icon/3.svg' %}" alt="">
                         </div>
                         <a href="jobs.html"><h3>Snack Studio</h3></a>
                         <p> <span>50</span> Available position</p>
@@ -361,7 +361,7 @@
                 <div class="col-lg-4 col-xl-3 col-md-6">
                     <div class="single_company">
                         <div class="thumb">
-                            <img src="img/svg_icon/1.svg" alt="">
+                            <img src="{% static 'img/svg_icon/1.svg' %}" alt="">
                         </div>
                         <a href="jobs.html"><h3>Snack Studio</h3></a>
                         <p> <span>50</span> Available position</p>
@@ -410,7 +410,7 @@
                                 <div class="col-lg-11">
                                     <div class="single_testmonial d-flex align-items-center">
                                         <div class="thumb">
-                                            <img src="img/testmonial/author.png" alt="">
+                                            <img src="{% static 'img/testmonial/author.png' %}" alt="">
                                             <div class="quote_icon">
                                                 <i class="Flaticon flaticon-quote"></i>
                                             </div>
@@ -428,7 +428,7 @@
                                 <div class="col-lg-11">
                                     <div class="single_testmonial d-flex align-items-center">
                                         <div class="thumb">
-                                            <img src="img/testmonial/author.png" alt="">
+                                            <img src="{% static 'img/testmonial/author.png' %}" alt="">
                                             <div class="quote_icon">
                                                 <i class=" Flaticon flaticon-quote"></i>
                                             </div>
@@ -446,7 +446,7 @@
                                 <div class="col-lg-11">
                                     <div class="single_testmonial d-flex align-items-center">
                                         <div class="thumb">
-                                            <img src="img/testmonial/author.png" alt="">
+                                            <img src="{% static 'img/testmonial/author.png' %}" alt="">
                                             <div class="quote_icon">
                                                 <i class="Flaticon flaticon-quote"></i>
                                             </div>

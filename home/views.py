@@ -5,6 +5,7 @@ from job.models import Job
 from job.forms import Jobform
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.core.paginator import Paginator
 
 # Create your views here.
 
@@ -12,7 +13,9 @@ from django.contrib import messages
 def home(request):
     # Fetch the job list
     job_list = Job.objects.all()  # You can customize this query based on your requirements
-
+    paginator = Paginator( job_list, 2) 
+    page_number = request.GET.get('page')
+    job_list = paginator.get_page(page_number)
     # Pass the job list to the template
     context = {'job_list': job_list}
     return render(request, 'home/home.html', context)

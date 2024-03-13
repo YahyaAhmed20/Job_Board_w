@@ -15,7 +15,7 @@ def jop_list(request):
     job_list=Job.objects.all()
     myfilter=JobFilter(request.GET,queryset=job_list)
     job_list=myfilter.qs
-    paginator = Paginator( job_list, 4) 
+    paginator = Paginator(job_list,10) 
     page_number = request.GET.get('page')
     job_list = paginator.get_page(page_number)
     context={'job_list':job_list,'myfilter':myfilter}
@@ -34,7 +34,7 @@ def job_detail(request, slug):
             messages.success(request, 'Applying for the job was successful!')
             request.session['show_message'] = True  # Set session variable
 
-            return redirect('/')
+            return redirect('jobs:job_list')
     else:
         form = ApplyForm()
 
