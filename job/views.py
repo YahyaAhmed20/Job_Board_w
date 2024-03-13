@@ -1,4 +1,5 @@
 from audioop import reverse
+from .filters import JobFilter
 from django.core.paginator import Paginator
 from django.shortcuts import redirect, render
 from .models import Job
@@ -12,10 +13,12 @@ from django.contrib.auth.decorators import login_required
 
 def jop_list(request):
     job_list=Job.objects.all()
-    paginator = Paginator( job_list, 10) 
+    myfilter=JobFilter(request.GET,queryset=job_list)
+    job_list=myfilter.qs
+    paginator = Paginator( job_list, 4) 
     page_number = request.GET.get('page')
     job_list = paginator.get_page(page_number)
-    context={'job_list':job_list}
+    context={'job_list':job_list,'myfilter':myfilter}
     return render(request,'job/job_list.html',context)
 
 def job_detail(request, slug):

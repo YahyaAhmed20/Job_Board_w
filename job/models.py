@@ -25,8 +25,11 @@ class Job(models.Model):
     description=models.TextField(max_length=10000)
     published_at=models.DateTimeField(auto_now=True)
     Vacancy=models.IntegerField(default=1)
+    
     salary=models.IntegerField(default=0)
     experince=models.IntegerField(default=1)
+    #category
+    category = models.ForeignKey('Category',on_delete=models.CASCADE)
     image=models.ImageField(upload_to=image_upload)
     slug=models.SlugField(blank=True,null=True)
     
@@ -37,7 +40,13 @@ class Job(models.Model):
     def __str__(self): 
         return self.title
 # متنساش لما user يبقه عامل signin ميظهرلوش غير apply
-
+class Category(models.Model):
+    name=models.CharField(max_length=25)
+    
+    def __str__(self): 
+        return self.name
+    
+    
 # متنساش الترجمه 
 class Apply(models.Model):
     job=models.ForeignKey(Job, related_name='apply_job', on_delete=models.CASCADE)
