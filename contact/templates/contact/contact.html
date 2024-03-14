@@ -1,5 +1,27 @@
 {% extends 'base.html' %}
 {%block body%}
+
+{% if messages %}
+    {% for message in messages %}
+        <div id="success_message" style="display: block; color: green;">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var successMessage = document.getElementById('success_message');
+        
+        if (successMessage) {
+            // JavaScript to hide the message after 5 seconds
+            setTimeout(function () {
+                successMessage.style.display = 'none';
+            }, 5000);  // 5 seconds = 5 * 1000 milliseconds
+        }
+    });
+</script>
+
     <!-- bradcam_area  -->
     <div class="bradcam_area bradcam_bg_1">
         <div class="container">
@@ -29,18 +51,18 @@
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                  <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder = 'Enter Subject'>
+                  <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Subject'" placeholder = 'Enter Your Subject'>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder = 'Enter email address'>
+                  <input class="form-control" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your email '" placeholder = 'Enter Your email'>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
                   
-                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder = 'Enter Message'></textarea>
+                    <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Message'" placeholder = 'Enter Your Message'></textarea>
                 </div>
               </div>
             </div>

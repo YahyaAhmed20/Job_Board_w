@@ -6,7 +6,7 @@ from . import views
 app_name='contact'
 
 urlpatterns = [
-    path('contact',views.send_messgae,name='contact'), 
+    path('contact',views.send_text,name='contact'), 
   
 
 ]
