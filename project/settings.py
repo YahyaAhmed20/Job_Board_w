@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'blog',
     'contact',
     'home',
+    'rest_framework',
 
     
 ]
