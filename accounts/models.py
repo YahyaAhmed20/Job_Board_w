@@ -9,14 +9,15 @@ class Profile(models.Model):
     city=models.ForeignKey('City',related_name='user_city',on_delete=models.CASCADE,blank=True, null=True)
     phone_number=models.CharField(max_length=15, blank=True, null=True)
     image=models.ImageField(upload_to='profile/')
+    
     def __str__(self):
            return str(self.user)
        
 @receiver(post_save,sender=User)      
 def create_profile(sender,**kwargs):
     if kwargs['created']:
-         user_profile=Profile.objects.create(user=kwargs['instance'])
-post_save.connect(create_profile,sender=User)
+        user_profile=Profile.objects.create(user=kwargs['instance'])
+    post_save.connect(create_profile,sender=User)
 
 
 class City(models.Model):

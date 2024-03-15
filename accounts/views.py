@@ -30,19 +30,16 @@ def profile(request):
 
 
 def profile_edit(request):
-    profile=Profile.objects.get(user=request.user)
-    if request.method=='POST':
-        userform=UserForm(request.POST,instance=request.user)
-        profleform=ProfileForm(request.POST,instance=profile)
+    profile = Profile.objects.get(user=request.user)
+    if request.method == 'POST':
+        userform = UserForm(request.POST, instance=request.user)
+        profleform = ProfileForm(request.POST, request.FILES, instance=profile)  # Include request.FILES for image uploads
         if userform.is_valid() and profleform.is_valid():
             userform.save()
-            myprofile=profleform.save(commit=False)
-            myprofile.user=request.user
-            myprofile.save()
+            profleform.save()
             return redirect(reverse('accounts:profile'))
-
     else:
-        userform=UserForm(instance=request.user)
-        profleform=ProfileForm(instance=profile)
+        userform = UserForm(instance=request.user)
+        profleform = ProfileForm(instance=profile)
     
-    return render(request,'accounts/profile_edit.html',{'userform':UserForm,'profleform':ProfileForm})
+    return render(request, 'accounts/profile_edit.html', {'userform': userform, 'profleform': profleform})
