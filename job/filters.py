@@ -7,5 +7,5 @@ class JobFilter(django_filters.FilterSet):
         model = Job
         fields = '__all__'
         
-        exclude=['owner','image','Vacancy','slug','published_at','country']
+        exclude=['owner','image','Vacancy','slug','published_at','country','responsibilities','qualifications','benefits']
         

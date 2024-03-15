@@ -23,6 +23,10 @@ class Job(models.Model):
  # Add the country field
 
     description=models.TextField(max_length=10000)
+
+    responsibilities = models.TextField(max_length=10000)
+    qualifications = models.TextField(max_length=10000)
+    benefits = models.TextField(max_length=10000)
     published_at=models.DateTimeField(auto_now=True)
     Vacancy=models.IntegerField(default=1)
     

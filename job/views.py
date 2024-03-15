@@ -15,7 +15,7 @@ def jop_list(request):
     job_list=Job.objects.all()
     myfilter=JobFilter(request.GET,queryset=job_list)
     job_list=myfilter.qs
-    paginator = Paginator(job_list,10) 
+    paginator = Paginator(job_list,6) 
     page_number = request.GET.get('page')
     job_list = paginator.get_page(page_number)
     context={'job_list':job_list,'myfilter':myfilter}
