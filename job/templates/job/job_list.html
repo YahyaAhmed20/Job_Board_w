@@ -26,14 +26,23 @@
         }
     });
 </script>
-
-
+<script>
+    (function (d, m) {
+        var kommunicateSettings =
+            { "appId": "b21fac2b5dd1d5b13bfa8be7a0d92a24", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+</script>
     <div class="bradcam_area bradcam_bg_1">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="bradcam_text">
-                        <h3>{{job_list|length}}+ Jobs Available</h3>
+
+                        <h3 class="wow fadeInLeft" data-wow-duration="1s">{{job_list|length}}+ Jobs Available</h3>
                     </div>
                 </div>
             </div>
@@ -137,6 +146,7 @@
             </div>
         </div>
     </div>
+
     <!-- job_listing_area_end  -->
 
     {% endblock body %}
