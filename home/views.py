@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.views.generic import ListView, DetailView
 from django.views.generic import DetailView
 from job.models import Job
-from job.forms import Jobform
+from job.forms import Jobform,ApplyForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -30,7 +30,7 @@ class HomeJobDetailView(DetailView):
     model = Job
     template_name = 'home/home_job_details.html'  # Update this to your actual template path
     context_object_name = 'job'
-    form_class = Jobform # Use the JobForm instead of creating a new form
+    form_class = ApplyForm # Use the JobForm instead of creating a new form
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
