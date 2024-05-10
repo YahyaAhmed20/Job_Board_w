@@ -1,3 +1,6 @@
+http://127.0.0.1:8000/jobs/api/list/v2/
+
+
 job:
                     Title
                     Location 
@@ -33,3 +36,10 @@ blog
 contact for 
 home 
 login 
+
+
+
+
+
+
+
