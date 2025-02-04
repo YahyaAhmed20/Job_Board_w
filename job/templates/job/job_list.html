@@ -2,6 +2,7 @@
     <!-- bradcam_area  -->
     {% load bootstrap4 %}
     {% load static %}
+    {% load i18n %}
     
     {% block body %}
 
@@ -43,8 +44,13 @@
                 <div class="col-xl-12">
                     <div class="bradcam_text">
 
-                        <h3 class="wow fadeInLeft" data-wow-duration="1s">{{job_list|length}}+ Jobs Available</h3>
-                    </div>
+                        <h3 class="wow fadeInLeft" data-wow-duration="1s">
+                            {% blocktrans count counter=job_list|length %}
+                                {{ counter }} Job Available
+                            {% plural %}
+                                {{ counter }} Jobs Available
+                            {% endblocktrans %}
+                        </h3>                    </div>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ from django.shortcuts import redirect, render
 from .models import Job
 from .forms import ApplyForm,Jobform
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 
 from django.contrib.auth.decorators import login_required
@@ -12,14 +13,17 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def jop_list(request):
-    job_list=Job.objects.all()
-    myfilter=JobFilter(request.GET,queryset=job_list)
-    job_list=myfilter.qs
-    paginator = Paginator(job_list,3) 
+    job_list = Job.objects.all()
+    myfilter = JobFilter(request.GET, queryset=job_list)
+    job_list = myfilter.qs
+    paginator = Paginator(job_list, 3) 
     page_number = request.GET.get('page')
     job_list = paginator.get_page(page_number)
-    context={'job_list':job_list,'myfilter':myfilter}
-    return render(request,'job/job_list.html',context)
+    context = {'job_list': job_list, 'myfilter': myfilter}
+    
+    # Translated message
+    messages.success(request, _('Congratulations! The job has been successfully posted. We look forward to receiving qualified candidates!'))
+    return render(request, 'job/job_list.html', context)
 
 def job_detail(request, slug):
     job_detail = Job.objects.get(slug=slug)
@@ -67,7 +71,7 @@ def add_job(request):
         
     context = {
             
-        'form1':form
+        'form':form
          
         }
     request.session.pop('show_message', None)
@@ -77,5 +81,3 @@ def add_job(request):
 
 
 # ChatBot
-
-

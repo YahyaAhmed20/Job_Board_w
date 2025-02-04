@@ -19,8 +19,11 @@ class Job(models.Model):
     owner=models.ForeignKey(User,related_name='job_owner',on_delete=models.CASCADE)
     title=models.CharField(max_length=100)
     job_tybe=models.CharField(max_length=15,choices=JOB_TYPE)
-    country = models.CharField(max_length=200,null=True, choices=CountryField().choices + [('', 'Select Country')])
- # Add the country field
+    country = models.CharField(
+        max_length=200,
+        null=True,
+        choices=list(CountryField().choices) + [('', 'Select Country')]
+    ) # Add the country field
 
     description=models.TextField(max_length=10000)
 

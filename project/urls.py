@@ -18,8 +18,15 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+
 
 urlpatterns = [
+    # Add this for language prefix in URLs
+    path('i18n/', include('django.conf.urls.i18n')),
+]
+
+urlpatterns += i18n_patterns (
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('accounts.urls',namespace='accounts')),
     path('jobs/',include('job.urls',namespace='jobs')),
@@ -31,4 +38,5 @@ urlpatterns = [
 
     
     
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+prefix_default_language=False  # This makes the default language URL appear without prefix
