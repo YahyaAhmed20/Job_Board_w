@@ -1,0 +1,8 @@
+{
+    "name": "Job_Board_w",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "echo Build step not needed for Django",
+      "start": "echo Start step not needed for Django"
+    }
+  }
