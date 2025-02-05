@@ -24,10 +24,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-4*ghb75#89^2)7f^4g7a1q-z5ad0irs$=l*$48t%!u)+624808'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = []
+
+DEBUG = False
+
+ALLOWED_HOSTS = ['.vercel.app', 'localhost']
+
 
 
 # Application definition
@@ -64,8 +66,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # Add this line
 
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+    
 
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 

@@ -1,15 +1,22 @@
 {
     "version": 2,
     "builds": [
-      {
-        "src": "Job_Board_w/wsgi.py", 
-        "use": "@vercel/python"
-      }
+        {
+            "src": "project/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "50mb",
+                "runtime": "python3.9",
+                "commands": [
+                    "python manage.py collectstatic --noinput"
+                ]
+            }
+        }
     ],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "Job_Board_w/wsgi.py"  
-      }
+        {
+            "src": "/(.*)",
+            "dest": "project/wsgi.py"
+        }
     ]
-  }
+}
